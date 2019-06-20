@@ -10,7 +10,7 @@
   window.addEventListener("click", clickActions, false);
   /*
   window.addEventListener("resize", resizeActions, false);
-  
+
   function resizeActions(e){
     if(window.innerWidth < 500){
        let m = document.querySelector('.MOD_MENU_Nav');
