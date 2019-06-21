@@ -74,7 +74,7 @@ function sendSMS() {
 }
 
 
-"use strict";
+// "use strict";
 
 (function() {
   //Breakpoints
