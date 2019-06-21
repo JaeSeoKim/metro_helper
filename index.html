@@ -74,23 +74,22 @@ START MODULE AREA 2: Text | Form
 				<h3>민원신청</h3>
 				<form name="myform" action="index.html" method="get" id="fromdata">
 					<div class="formRow">
-						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" value="" placeholder="ex)311000">
+						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" value="" placeholder="ex)31100">
 					</div>
 					<div class="formRow">
 						<label for="select_Menu" >양식 선택</label>
-						<select name="selMenu" id="select_Menu">
-							<option value="Emergency" >성추행/긴급상황</option>
-							<option value="Disordered">질서저해</option>
-							<option value="Temperature">냉난방</option>
-							<option value="Others">기타</option>
+						<select name="selMenu" id="select_Menu" onchange="selectVal()">
+							<option value="Emergency"onload="input_Val()" >성추행/긴급상황</option>
+							<option value="Disordered"onload="input_Val()">질서저해</option>
+							<option value="Temperature"onload="input_Val()">냉난방</option>
+							<option value="Others"onload="input_Val()">기타</option>
 						</select>
-						<!-- <label for="MOD_TEXTFORM_EmailField">양식 선택</label><input id="MOD_TEXTFORM_EmailField" type="text"> -->
 					</div>
 					<div class="formRow">
 						<label for="phoneNum">연락처 </label><input id="phoneNum" type="text" value="" placeholder="여기에 번호가 자동으로 입력됨">
 					</div>
 					<div class="formRow">
-						<label for="MOD_TEXTFORM_MsgField">상세한 민원내용 </label><textarea id="MOD_TEXTFORM_MsgField" placeholder="여기에 상세한 민원 내용을 입력 해주세요."></textarea></div>
+						<label for="msg_Field">상세한 민원내용 </label><textarea id="msg_Field" name="msgField" placeholder="여기에 상세한 민원 내용을 입력 해주세요."></textarea></div>
 					<button type="button" class="btn" onclick="sendSMS()">전송</button>
 					<button type="submit" class="btn">testButton</button>
 				</form>
