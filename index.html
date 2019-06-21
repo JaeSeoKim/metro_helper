@@ -49,7 +49,7 @@
 </head>
 <!-- End Head -->
 
-<body class="default" onload="input_Text()">
+<body class="default" onload="input_Text(),input_Num()">
 
 	<!--
 START MODULE AREA 1: Page Title 1 Background
@@ -72,24 +72,24 @@ START MODULE AREA 2: Text | Form
 		<div data-layout="_r">
 			<div data-layout="de6 ec5 ec-n3">
 				<p><br>다음 각 호의 어느 하나에 해당하는 사람은 60만원 이하의 벌금, 구류 또는 과료의 형으로 처벌한다. <개정 2013. 5. 22.></br>
-					<br>	(거짓신고) 있지 아니한 범죄나 재해 사실을 공무원에게 거짓으로 신고한 사람</br></p>
+						<br> (거짓신고) 있지 아니한 범죄나 재해 사실을 공무원에게 거짓으로 신고한 사람</br></p>
 			</div>
 			<div data-layout="de10 ec-half">
 				<h3>민원신청</h3>
-				<form name="myform" action="index.html" method="get" id="fromdata"  >
+				<form name="myform" action="index.html" method="get" id="fromdata">
 					<div class="formRow">
 						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" value="" placeholder="입력">
 					</div>
 					<div class="formRow">
-						<label for="MOD_TEXTFORM_EmailField">양식 선택</label><input id="MOD_TEXTFORM_EmailField" type="text" >
+						<label for="MOD_TEXTFORM_EmailField">양식 선택</label><input id="MOD_TEXTFORM_EmailField" type="text">
 					</div>
 					<div class="formRow">
-						<label for="phoneNum">연락처 </label><input id="phoneNum" type="text" value="">
+						<label for="phoneNum">연락처 </label><input id="phoneNum" type="text" value="" placeholder="여기에 번호가 자동으로 입력됨">
 					</div>
 					<div class="formRow">
 						<label for="MOD_TEXTFORM_MsgField">상세한 민원내용 </label><textarea id="MOD_TEXTFORM_MsgField" placeholder="여기에 상세한 민원 내용을 입력 해주세요."></textarea></div>
 					<button type="button" class="btn" onclick="" id="test">전송</button>
-					<button type="submit" class="btn" >submit</button>
+					<button type="submit" class="btn">submit</button>
 				</form>
 			</div>
 		</div>

@@ -1,3 +1,5 @@
+// "use strict";
+
 function getParameterByName(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -6,9 +8,9 @@ function getParameterByName(name) {
 }
 
 function input_Text() {
-  if(getParameterByName('trainNum') == null || getParameterByName('trainNum')==""){
-      console.log("url에 지하철 데이터가 없음.");
-  }else {
+  if (getParameterByName('trainNum') == null || getParameterByName('trainNum') == "") {
+    console.log("url에 지하철 데이터가 없음.");
+  } else {
     document.getElementById("train_number").value = getParameterByName('trainNum');
     console.log("url에서 지하철 데이터 가져옴");
   }
@@ -49,32 +51,43 @@ function sendSMS() {
   }
 }
 
- document.getElementById('test').onclick = function findNum() {
+function findNum() {
   var no = document.myform.trainNum.value;
   if (no.length == 6) {
     switch (no.substr(0, 3)) {
       case "311":
-        document.myform.phoneNum.value = "1577-1234";
+        return "1577-1234";
         break;
       default:
-        document.myform.phoneNum.value = "err01";
+        return "err01";
     }
   } else if (no.length == 4) {
     switch (no.substr(0, 1)) {
       case "9":
-        document.myform.phoneNum.value =  "1544-4009";
+        return "1544-4009";
         break;
       default:
-        document.myform.phoneNum.value =  "err02";
+        return "err02";
     }
   } else {
-     document.myform.phoneNum.value =  "err03"
+    return "err03";
   }
-  console.log("번호가 입력됨!");
+  console.log("열차칸번호와 매치해서 값을 가져옴");
 }
 
+function input_Num() {
+  var num = findNum();
+  if (num == null || num == "err03") {
+    console.log("err findNum() 에서 데이터를 발견 못함");
+  } else if (num == "err02" || num == "err01") {
+    console.log("err 지하철 칸 번호가 비정상임");
+  } else {
+    document.myform.phoneNum.value = num;
+    console.log("document.myform.phoneNum.value에 데이터를 입력함.");
+  }
+  console.log("input_Num 작동중");
+}
 
-// "use strict";
 
 (function() {
   //Breakpoints
