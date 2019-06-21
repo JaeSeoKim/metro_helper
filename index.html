@@ -49,7 +49,7 @@
 </head>
 <!-- End Head -->
 
-<body class="default">
+<body class="default" onload="input_Text()">
 
 	<!--
 START MODULE AREA 1: Page Title 1 Background
@@ -76,19 +76,20 @@ START MODULE AREA 2: Text | Form
 			</div>
 			<div data-layout="de10 ec-half">
 				<h3>민원신청</h3>
-				<form name="" action="index.html" method="get">
+				<form name="myform" action="index.html" method="get" id="fromdata"  >
 					<div class="formRow">
-						<label for="MOD_TEXTFORM_NameField">지하철 칸 번호 </label><input id="MOD_TEXTFORM_NameField" type="text" val="">
+						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" value="" placeholder="입력">
 					</div>
 					<div class="formRow">
 						<label for="MOD_TEXTFORM_EmailField">양식 선택</label><input id="MOD_TEXTFORM_EmailField" type="text" >
 					</div>
 					<div class="formRow">
-						<label for="MOD_TEXTFORM_TelField">연락처 </label><input id="MOD_TEXTFORM_TelField" type="tel">
+						<label for="phoneNum">연락처 </label><input id="phoneNum" type="text" value="">
 					</div>
 					<div class="formRow">
-						<label for="MOD_TEXTFORM_MsgField">상세한 민원내용 </label><textarea id="MOD_TEXTFORM_MsgField" placeholder="Enter your message..."></textarea></div>
-					<button type="button" class="btn">전송</button>
+						<label for="MOD_TEXTFORM_MsgField">상세한 민원내용 </label><textarea id="MOD_TEXTFORM_MsgField" placeholder="여기에 상세한 민원 내용을 입력 해주세요."></textarea></div>
+					<button type="button" class="btn" onclick="" id="test">전송</button>
+					<button type="submit" class="btn" >submit</button>
 				</form>
 			</div>
 		</div>

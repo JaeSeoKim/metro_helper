@@ -1,6 +1,82 @@
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function input_Text() {
+  if(getParameterByName('trainNum') == null || getParameterByName('trainNum')==""){
+      console.log("url에 지하철 데이터가 없음.");
+  }else {
+    document.getElementById("train_number").value = getParameterByName('trainNum');
+    console.log("url에서 지하철 데이터 가져옴");
+  }
+  console.log("input_Text 작동중");
+
+}
+
+function selectVal() {
+  var menu = document.myform.menu.value;
+  var no = document.myform.trainNum.value;
+  switch (menu) {
+    case "Emergency":
+      return "열차 칸번호는 " + no + "입니다.\n현재 위급상황입니다.\n빠른 출동 부탁드립니다."
+      break;
+    case "Disordered":
+      return "열차 칸번호는 " + no + "입니다.\n현재 질서저해가 이루어지고 있습니다..\n빠른 해결 부탁드립니다."
+      break;
+    case "Temperature":
+      return "열차 칸번호는 " + no + "입니다.\n현재 열차의 칸의 온도가 부적절합니다..\n빠른 해결 부탁드립니다."
+      break;
+    default:
+      return "열차 칸번호는 " + no + "입니다.\n."
+      break;
+  }
+}
+
+function sendSMS() {
+
+  var phoneNum = findNum();
+  var bodyVal = selectVal();
+  var varUA = navigator.userAgent.toLowerCase();
+  if (varUA.match('android') != null) {
+    location.href = "sms:" + phoneNum + "?body=" + bodyVal;
+  } else if (varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 || varUA.indexOf("ipod") > -1) {
+    location.href = "sms:" + phoneNum + "&body=" + bodyVal;
+  } else {
+    location.href = "sms:" + phoneNum + "?body=" + bodyVal;
+  }
+}
+
+ document.getElementById('test').onclick = function findNum() {
+  var no = document.myform.trainNum.value;
+  if (no.length == 6) {
+    switch (no.substr(0, 3)) {
+      case "311":
+        document.myform.phoneNum.value = "1577-1234";
+        break;
+      default:
+        document.myform.phoneNum.value = "err01";
+    }
+  } else if (no.length == 4) {
+    switch (no.substr(0, 1)) {
+      case "9":
+        document.myform.phoneNum.value =  "1544-4009";
+        break;
+      default:
+        document.myform.phoneNum.value =  "err02";
+    }
+  } else {
+     document.myform.phoneNum.value =  "err03"
+  }
+  console.log("번호가 입력됨!");
+}
+
+
 "use strict";
 
-(function () {
+(function() {
   //Breakpoints
   var charlie = 500;
   var delta = 700;
@@ -97,11 +173,11 @@
   }
 
   //JAVASCRIPT MODULES FOR DETACHED COMPONENTS
-  var MODULE_MENU = function () {
+  var MODULE_MENU = function() {
     //Menu 1
     //convert nodelist to array for MS Edge fix
     var MOD_MENU_Button = [].slice.call(document.querySelectorAll(".MOD_MENU_Button"));
-    MOD_MENU_Button.forEach(function (i) {
+    MOD_MENU_Button.forEach(function(i) {
       i.addEventListener("click", toggleMenu);
     });
 
@@ -148,9 +224,11 @@
         subMenuToggle.setAttribute("title", "Open Submenu");
       }
     }
-    return { toggleMenu: toggleMenu };
+    return {
+      toggleMenu: toggleMenu
+    };
   }();
-  var MODULE_LIGHTBOX = function () {
+  var MODULE_LIGHTBOX = function() {
     //Lightbox
     function lightboxCreate(aTag, imgsrc) {
       //make sure lightbox isn't open already
@@ -188,11 +266,13 @@
         lb.parentNode.removeChild(lb);
       }
     }
-    return { lightboxCreate: lightboxCreate };
+    return {
+      lightboxCreate: lightboxCreate
+    };
   }(); //END MODULE_LIGHTBOX
 
   //Accordion
-  var MODULE_ACCORDION = function () {
+  var MODULE_ACCORDION = function() {
     // setAutoTimer will hold the setTimeout timer for switching the panels height to 'auto' when the CSS transition has finished. It is an object as it needs to be accessible throughout this module.
     var setAutoTimer = {};
     var MODULE_ACCORDION_Panels = document.querySelectorAll(".AP_accordion_panel");
@@ -216,7 +296,7 @@
     //accordionManager is called whenever an accordion tab is clicked
     function accordionManager(el) {
       if (el.nextElementSibling.classList.contains("AP_accordion_panel")) {
-        (function () {
+        (function() {
           //toggle .open class on clicked tab
           el.classList.toggle("open");
           //toggle height of accordion panel
@@ -228,25 +308,27 @@
             panel.style.height = panel.scrollHeight + "px";
 
             // Third, we create a promise to listen for when the style height matches the scrollHeight value. Without the promise this would all happen in a split second and the CSS will begin animating from "auto" and not the value of scrollHeight.
-            var p = new Promise(function (resolve, reject) {
+            var p = new Promise(function(resolve, reject) {
               if (panel.style.height === panel.scrollHeight + "px") {
                 resolve();
               }
             });
 
-            p.then(function () {
+            p.then(function() {
               panel.style.height = "0";
             });
           } else {
             panel.style.height = panel.scrollHeight + "px";
             //wait 0.3s for CSS transition to finish before settings height to "auto"
-            setAutoTimer.timer = setTimeout(function () {
+            setAutoTimer.timer = setTimeout(function() {
               panel.style.height = "auto";
             }, 300);
           }
         })();
       }
     }
-    return { accordionManager: accordionManager };
+    return {
+      accordionManager: accordionManager
+    };
   }();
 })(); //END MAIN IIFE
