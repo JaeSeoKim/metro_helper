@@ -30,24 +30,25 @@ function input_PhoneNum() {
   }
   console.log("input_PhoneNum() 작동함");
 }
+
 function selectVal() {
   var menu = document.myform.selMenu.value;
   var no = document.myform.trainNum.value;
   switch (menu) {
     case "Emergency":
-      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\r\n현재 위급상황입니다.\r\n빠른 출동 부탁드립니다."
+      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\n현재 위급상황입니다.\n빠른 출동 부탁드립니다."
       break;
     case "Disordered":
-      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\r\n현재 질서저해가 이루어지고 있습니다..\r\n빠른 해결 부탁드립니다."
+      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\n현재 질서저해가 이루어지고 있습니다..\n빠른 해결 부탁드립니다."
       break;
     case "Temperature":
-      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\r\n현재 열차의 칸의 온도가 부적절합니다..\r\n빠른 해결 부탁드립니다."
+      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\n현재 열차의 칸의 온도가 부적절합니다..\n빠른 해결 부탁드립니다."
       break;
     case "Others":
-      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\r\n현재 열차의 칸의 온도가 부적절합니다..\r\n빠른 해결 부탁드립니다."
+      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\n현재 열차의 칸의 온도가 부적절합니다..\n빠른 해결 부탁드립니다."
       break;
     default:
-      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\r\n"
+      document.myform.msgField.value = "열차 칸번호는 " + no + "입니다.\n"
       break;
   }
   console.log("selectVal() 작동중");
@@ -65,7 +66,7 @@ function sendSMS() {
   } else {
     location.href = "sms:" + phoneNum + "?body=" + bodyVal;
   }
-  console.log(phoneNum+"\n"+bodyVal);
+  console.log(phoneNum + "\n" + bodyVal);
   console.log("sendSMS() 작동중");
 }
 
