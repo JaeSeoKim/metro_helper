@@ -14,8 +14,21 @@ function input_TrainNum() {
     document.getElementById("train_number").value = getParameterByName('trainNum');
     console.log("url에서 지하철 데이터 가져옴");
   }
-  console.log("input_TrainNum 작동중");
+  console.log("input_TrainNum 작동함");
 
+}
+
+function input_PhoneNum() {
+  var num = findNum();
+  if (num == null || num == "err03") {
+    console.log("err findNum() 에서 데이터를 발견 못함");
+  } else if (num == "err02" || num == "err01") {
+    console.log("err 지하철 칸 번호가 비정상임");
+  } else {
+    document.myform.phoneNum.value = num;
+    console.log("document.myform.phoneNum.value에 데이터를 입력함.");
+  }
+  console.log("input_PhoneNum() 작동함");
 }
 
 function selectVal() {
@@ -78,18 +91,6 @@ function findNum() {
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
 
-function input_PhoneNum() {
-  var num = findNum();
-  if (num == null || num == "err03") {
-    console.log("err findNum() 에서 데이터를 발견 못함");
-  } else if (num == "err02" || num == "err01") {
-    console.log("err 지하철 칸 번호가 비정상임");
-  } else {
-    document.myform.phoneNum.value = num;
-    console.log("document.myform.phoneNum.value에 데이터를 입력함.");
-  }
-  console.log("input_PhoneNum() 작동중");
-}
 
 
 (function() {
