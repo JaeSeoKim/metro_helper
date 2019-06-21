@@ -7,19 +7,19 @@ function getParameterByName(name) {
   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function input_Text() {
+function input_TrainNum() {
   if (getParameterByName('trainNum') == null || getParameterByName('trainNum') == "") {
     console.log("url에 지하철 데이터가 없음.");
   } else {
     document.getElementById("train_number").value = getParameterByName('trainNum');
     console.log("url에서 지하철 데이터 가져옴");
   }
-  console.log("input_Text 작동중");
+  console.log("input_TrainNum 작동중");
 
 }
 
 function selectVal() {
-  var menu = document.myform.menu.value;
+  var menu = document.myform.selMenu.value;
   var no = document.myform.trainNum.value;
   switch (menu) {
     case "Emergency":
@@ -29,6 +29,9 @@ function selectVal() {
       return "열차 칸번호는 " + no + "입니다.\n현재 질서저해가 이루어지고 있습니다..\n빠른 해결 부탁드립니다."
       break;
     case "Temperature":
+      return "열차 칸번호는 " + no + "입니다.\n현재 열차의 칸의 온도가 부적절합니다..\n빠른 해결 부탁드립니다."
+      break;
+    case "Others":
       return "열차 칸번호는 " + no + "입니다.\n현재 열차의 칸의 온도가 부적절합니다..\n빠른 해결 부탁드립니다."
       break;
     default:
@@ -75,7 +78,7 @@ function findNum() {
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
 
-function input_Num() {
+function input_PhoneNum() {
   var num = findNum();
   if (num == null || num == "err03") {
     console.log("err findNum() 에서 데이터를 발견 못함");
@@ -85,7 +88,7 @@ function input_Num() {
     document.myform.phoneNum.value = num;
     console.log("document.myform.phoneNum.value에 데이터를 입력함.");
   }
-  console.log("input_Num 작동중");
+  console.log("input_PhoneNum() 작동중");
 }
 
 

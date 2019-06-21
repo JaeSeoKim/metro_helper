@@ -300,11 +300,11 @@ figure {
 }
 
 /* Forms Generic */
-input[type=search], input[type=text], input[type=email], input[type=tel] {
+input[type=search], input[type=text], input[type=email], input[type=tel] ,select{
   padding: 0.4em;
 }
 
-textarea {
+textarea{
   padding: 0.5em;
 }
 
@@ -324,7 +324,7 @@ label {
   }
 }
 
-input {
+input ,select{
   width: 100%;
   max-width: 18rem;
   font-size: 1em;
