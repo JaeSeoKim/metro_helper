@@ -10,6 +10,15 @@ body, html {
   margin: 0
 }
 
+#footer_css{
+  padding: 16px 16px;
+}
+
+input,select,textarea {
+  border: 1px solid gray;
+  background-color: white;
+}
+
 [data-layout^="_r"] {
   display: flex;
   flex-wrap: wrap;
