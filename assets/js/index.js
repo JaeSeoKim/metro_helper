@@ -82,15 +82,42 @@ function findNum() {
   if (no.length == 6) {
     switch (no.substr(0, 3)) {
       case "311":
-        return "1577-1234";
+      case "341":
+        return "1544-7788";
+        break;
+      case "321":
+      case "331":
+      case "351":
+        return "1544-7769";
+        break;
+      case "361":
+      case "371":
+        return "데이터가 없음...(1)";
         break;
       default:
         return "err01";
     }
   } else if (no.length == 4) {
     switch (no.substr(0, 1)) {
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+        return "1577-5678";
+        break;
       case "9":
         return "1544-4009";
+        break;
+      case "D":
+        return "031-8018-7777";
+        break;
+      case "U":
+      case "Y":
+        return "데이터가 없음...(2)";
         break;
       default:
         return "err02";
@@ -101,13 +128,6 @@ function findNum() {
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
 
-//작동 하다 안해서 일단 비활성화 하고 다른 방법으로 구현함
-// function onlyNumber() {
-//   if (event.keyCode < 48 || event.keyCode > 57) {
-//     event.returnValue = false;
-//     console.log("글자 입력 무시됨");
-//   }
-// }
 
 
 (function() {
