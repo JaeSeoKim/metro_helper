@@ -20,11 +20,10 @@ function input_TrainNum() {
 
 function input_PhoneNum() {
   var num = findNum();
-  if (num == null || num == "err03") {
+  var no = document.myform.trainNum.value;
+  if (no == "" || no==null) {
     console.log("err findNum() 에서 데이터를 발견 못함");
-  } else if (num == "err02" || num == "err01") {
-    console.log("err 지하철 칸 번호가 비정상임");
-  } else {
+  }else {
     document.myform.phoneNum.value = num;
     console.log("document.myform.phoneNum.value에 데이터를 입력함.");
   }
@@ -107,7 +106,7 @@ function findNum() {
       case "6":
       case "7":
       case "8":
-        return "1577-5678";
+        return "1577-1234";
         break;
       case "9":
         return "1544-4009";

@@ -67,7 +67,7 @@ START Form | Text
 				<h3>민원 신청</h3>
 				<form name="myform" action="index.html" method="get" id="fromdata">
 					<div class="formRow">
-						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" maxlength="6" onKeydown="javascript:if(event.keyCode == 13) form.submit();" placeholder="ex)311000">
+						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" maxlength="6" onkeypress="input_PhoneNum()" onKeydown="javascript:if(event.keyCode == 13) form.submit();" placeholder="ex)311000">
 					</div>
 					<div class="formRow">
 						<label for="select_Menu">양식 선택</label>
@@ -79,7 +79,7 @@ START Form | Text
 						</select>
 					</div>
 					<div class="formRow">
-						<label for="phoneNum">연락처</label><input id="phoneNum" type="text" value="" placeholder="여기에 번호가 자동으로 입력됨" readonly>
+						<label for="phoneNum">연락처</label><input id="phoneNum" type="text" placeholder="여기에 번호가 자동으로 입력됨" readonly>
 					</div>
 					<div class="formRow">
 						<label for="msg_Field">상세한 민원내용 </label><textarea id="msg_Field" name="msgField" maxlength="40" placeholder="여기에 상세한 민원 내용을 입력 해주세요.(40글자 제한,그이상의 민원내용은 이어서 메세지를 보내주세요.)"></textarea></div>
