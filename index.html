@@ -18,7 +18,7 @@
 	<meta property="og:url" content="https://jaeseokim.github.io/metro_helper/" />
 	<meta property="og:title" content="지하철 간편 민원" />
 	<meta property="og:description" content="NFC,QR코드를 이용해 간편하게 지하철 민원을 가능하게 해줍니다." />
-	<meta property="og:image" content="	https://jaeseokim.github.io/metro_helper/assets/img/index.png" />
+	<meta property="og:image" content="https://jaeseokim.github.io/metro_helper/assets/img/index.png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 
@@ -49,10 +49,10 @@
 </head> -->
 	<!-- End Head -->
 
-<body class="default" onload="input_TrainNum(),input_PhoneNum(),selectVal()">
+<body class="default" onload="input_TrainNum(),input_PhoneNum(),input_Val()">
 
 	<!--
-START MODULE AREA 1: Page Title 1 Background
+START Page Title 1 Background
 -->
 	<section class="MOD_PAGETITLEBACKGROUND" data-theme="_bgp">
 		<div data-layout="_r">
@@ -62,11 +62,11 @@ START MODULE AREA 1: Page Title 1 Background
 		</div>
 	</section>
 	<!--
-END MODULE AREA 1: Page Title 1 Background
+END Page Title 1 Background
 -->
 
 	<!--
-START MODULE AREA 2: Text | Form
+START Text | Form
 -->
 	<section>
 		<div data-layout="_r">
@@ -74,7 +74,7 @@ START MODULE AREA 2: Text | Form
 				<h3>민원 신청</h3>
 				<form name="myform" action="index.html" method="get" id="fromdata">
 					<div class="formRow">
-						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" value="" placeholder="ex)31100">
+						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" maxlength="6" onKeydown="javascript:if(event.keyCode == 13) form.submit();" onkeypress="inNumber()" placeholder="ex)31100">
 					</div>
 					<div class="formRow">
 						<label for="select_Menu">양식 선택</label>
@@ -86,12 +86,11 @@ START MODULE AREA 2: Text | Form
 						</select>
 					</div>
 					<div class="formRow">
-						<label for="phoneNum">연락처</label><input id="phoneNum" type="text" value="" placeholder="여기에 번호가 자동으로 입력됨">
+						<label for="phoneNum">연락처</label><input id="phoneNum" type="text" value="" onkeypress="inNumber()" placeholder="여기에 번호가 자동으로 입력됨">
 					</div>
 					<div class="formRow">
-						<label for="msg_Field">상세한 민원내용 </label><textarea id="msg_Field" name="msgField" placeholder="여기에 상세한 민원 내용을 입력 해주세요."></textarea></div>
+						<label for="msg_Field">상세한 민원내용 </label><textarea id="msg_Field" name="msgField" maxlength="40" placeholder="여기에 상세한 민원 내용을 입력 해주세요."></textarea></div>
 					<button type="button" class="btn" onclick="sendSMS()">전송</button>
-					<!-- <button type="submit" class="btn">testButton</button> -->
 				</form>
 			</div>
 			<div data-layout="de6 ec5 ec-n3">
@@ -101,8 +100,22 @@ START MODULE AREA 2: Text | Form
 		</div>
 	</section>
 	<!--
-END MODULE AREA 2: Text | Form
+END Text | Form
 -->
+
+	<footer>
+		<div class="MOD_FOOTER2" data-theme="_bgd">
+			<div data-layout="_r">
+				<div data-layout="al16 ch-o3 ec-o2">
+					<h3>Contact</h3>
+					<p>Email: <a href="mailto:#">kimjaeseo0220@gmail.com</a>
+						<!-- <br>Phone: <a href="tel:#">01234 </a> -->
+					</p>
+					<p>Copyright &copy; 김재서,박화비</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<script src="assets/js/index.js"></script>
 </body>

@@ -31,24 +31,31 @@ function input_PhoneNum() {
   console.log("input_PhoneNum() 작동함");
 }
 
+function input_Val() {
+  var no = document.myform.trainNum.value;
+  if (no != "") {
+    selectVal()
+  }
+}
+
 function selectVal() {
   var menu = document.myform.selMenu.value;
   var no = document.myform.trainNum.value;
   switch (menu) {
     case "Emergency":
-      document.myform.msgField.value = "열차 칸 번호는 " + no + "입니다.\n현재 위급상황입니다.\n빠른 출동 부탁드립니다."
+      document.myform.msgField.value = "[" + no + "]\n현재 위급상황입니다.\n빠른 출동 부탁드립니다."
       break;
     case "Disordered":
-      document.myform.msgField.value = "열차 칸 번호는 " + no + "입니다.\n현재 질서저해가 이루어지고 있습니다.\n빠른 해결 부탁드립니다."
+      document.myform.msgField.value = "[" + no + "]\n현재 질서저해가 이루어지고 있습니다.\n빠른 해결 부탁드립니다."
       break;
     case "Temperature":
-      document.myform.msgField.value = "열차 칸 번호는 " + no + "입니다.\n현재 열차의 칸의 온도가 부적절합니다.\n빠른 해결 부탁드립니다."
+      document.myform.msgField.value = "[" + no + "]\n현재 열차의 칸의 온도가 부적절합니다.\n빠른 해결 부탁드립니다."
       break;
     case "Others":
-      document.myform.msgField.value = "열차 칸 번호는 " + no + "입니다.\n"
+      document.myform.msgField.value = "[" + no + "]\n"
       break;
     default:
-      document.myform.msgField.value = "열차 칸 번호는 " + no + "입니다.\n"
+      document.myform.msgField.value = "[" + no + "]\n"
       break;
   }
   console.log("selectVal() 작동중");
@@ -94,6 +101,11 @@ function findNum() {
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
 
+function inNumber() {
+  if (event.keyCode < 48 || event.keyCode > 57) {
+    event.returnValue = false;
+  }
+}
 
 
 (function() {
