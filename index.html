@@ -67,19 +67,20 @@ START Form | Text
 				<h3>민원 신청</h3>
 				<form name="myform" action="index.html" method="get" id="fromdata">
 					<div class="formRow">
-						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" maxlength="6" onKeydown="javascript:if(event.keyCode == 13) form.submit();" onkeypress="inNumber();" placeholder="ex)31100">
+						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" maxlength="6" onKeydown="javascript:if(event.keyCode == 13) form.submit();" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+							placeholder="ex)31100">
 					</div>
 					<div class="formRow">
 						<label for="select_Menu">양식 선택</label>
 						<select name="selMenu" id="select_Menu" onchange="selectVal();">
-							<option value="Emergency"  selected="selected">성범죄/긴급상황</option>
-							<option value="Disordered" >질서저해</option>
-							<option value="Temperature" >냉난방</option>
-							<option value="Others" >기타</option>
+							<option value="Emergency" selected="selected">성범죄/긴급상황</option>
+							<option value="Disordered">질서저해</option>
+							<option value="Temperature">냉난방</option>
+							<option value="Others">기타</option>
 						</select>
 					</div>
 					<div class="formRow">
-						<label for="phoneNum">연락처</label><input id="phoneNum" type="text" value="" onkeypress="inNumber();" placeholder="여기에 번호가 자동으로 입력됨">
+						<label for="phoneNum">연락처</label><input id="phoneNum" type="text" value="" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="여기에 번호가 자동으로 입력됨">
 					</div>
 					<div class="formRow">
 						<label for="msg_Field">상세한 민원내용 </label><textarea id="msg_Field" name="msgField" maxlength="40" placeholder="여기에 상세한 민원 내용을 입력 해주세요."></textarea></div>
@@ -102,7 +103,7 @@ END Form | Text
 				<div data-layout="al16 ch-o3 ec-o2">
 					<!-- <h3>Contact</h3>
 					<p>Email: <a href="mailto:#">kimjaeseo0220@gmail.com</a> -->
-						<!-- <br>Phone: <a href="tel:#">01234 </a> -->
+					<!-- <br>Phone: <a href="tel:#">01234 </a> -->
 					</p>
 					<p>Copyright &copy; 2019 by 김재서,박화비 </p>
 				</div>

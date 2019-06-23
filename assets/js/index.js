@@ -101,11 +101,13 @@ function findNum() {
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
 
-function inNumber() {
-  if (event.keyCode < 48 || event.keyCode > 57) {
-    event.returnValue = false;
-  }
-}
+//작동 하다 안해서 일단 비활성화 하고 다른 방법으로 구현함
+// function onlyNumber() {
+//   if (event.keyCode < 48 || event.keyCode > 57) {
+//     event.returnValue = false;
+//     console.log("글자 입력 무시됨");
+//   }
+// }
 
 
 (function() {
