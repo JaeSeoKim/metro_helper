@@ -127,7 +127,14 @@ function findNum() {
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
 
+function changeColor(obj) {
+  obj.style.borderBottomColor = "#4d36bd";
 
+}
+
+function changeOrignal(obj) {
+  obj.style.borderBottomColor = "gray";
+}
 
 (function() {
   //Breakpoints
