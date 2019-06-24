@@ -94,7 +94,7 @@ function findNum() {
         return "데이터가 없음...(1)";
         break;
       default:
-        return "err01";
+        return "정확한 지하철 번호를 입력해주세요[err01]";
     }
   } else if (no.length == 4) {
     switch (no.substr(0, 1)) {
@@ -119,10 +119,10 @@ function findNum() {
         return "데이터가 없음...(2)";
         break;
       default:
-        return "err02";
-    }
+        return "정확한 지하철 번호를 입력해주세요[err02]";
+      }
   } else {
-    return "err03";
+    return "정확한 지하철 번호를 입력해주세요[err03]";
   }
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
