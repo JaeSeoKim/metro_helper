@@ -21,9 +21,9 @@ function input_TrainNum() {
 function input_PhoneNum() {
   var num = findNum();
   var no = document.myform.trainNum.value;
-  if (no == "" || no==null) {
+  if (no == "" || no == null) {
     console.log("err findNum() 에서 데이터를 발견 못함");
-  }else {
+  } else {
     document.myform.phoneNum.value = num;
     console.log("document.myform.phoneNum.value에 데이터를 입력함.");
   }
@@ -81,17 +81,16 @@ function findNum() {
   if (no.length == 6) {
     switch (no.substr(0, 3)) {
       case "311":
+      case "312":
       case "341":
-        return "1544-7788";
-        break;
       case "321":
       case "331":
       case "351":
-        return "1544-7769";
-        break;
       case "361":
       case "371":
-        return "데이터가 없음...(1)";
+      case "381":
+      case "391":
+        return "1544-7769";
         break;
       default:
         return "정확한 지하철 번호를 입력해주세요[err01]";
@@ -112,15 +111,17 @@ function findNum() {
         return "1544-4009";
         break;
       case "D":
-        return "031-8018-7777";
+        return "031-8018-7777 call only";
         break;
       case "U":
+        return "031-820-1000 call only";
+        break;
       case "Y":
-        return "데이터가 없음...(2)";
+        return "031-329-3500 call only";
         break;
       default:
         return "정확한 지하철 번호를 입력해주세요[err02]";
-      }
+    }
   } else {
     return "정확한 지하철 번호를 입력해주세요[err03]";
   }
