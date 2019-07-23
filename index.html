@@ -70,7 +70,7 @@ START Form | Text
 						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" maxlength="6" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)" onkeypress="input_PhoneNum()"
 							onKeydown="javascript:if(event.keyCode == 13) form.submit();" placeholder="ex)311000">
 					</div>
-					<div class="formRow">
+					<div class="formRow" id="form_Select_Menu">
 						<label for="select_Menu">양식 선택</label>
 						<select name="selMenu" id="select_Menu" onchange="selectVal();" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)">
 							<option value="Emergency" selected="selected">성범죄/긴급상황</option>
@@ -83,9 +83,9 @@ START Form | Text
 						<label for="phoneNum">연락처</label><input id="phoneNum" type="text" placeholder="여기에 번호가 자동으로 입력됨" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)" readonly>
 					</div>
 					<div class="formRow">
-						<label for="msg_Field">상세한 민원내용 </label><textarea id="msg_Field" name="msgField" maxlength="40" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)"
+						<label for="msg_Field" id="msg_label">상세한 민원내용</label><textarea id="msg_Field" name="msgField" maxlength="40" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)"
 							placeholder="여기에 상세한 민원 내용을 입력 해주세요.(40글자 제한,그이상의 민원내용은 이어서 메세지를 보내주세요.)"></textarea></div>
-					<button type="button" class="btn" onclick="sendSMS();">전송</button>
+					<button type="button" name="sendBtn" class="btn" onclick="send();">전송</button>
 				</form>
 			</div>
 			<div data-layout="de6 ec5 ec-n3">

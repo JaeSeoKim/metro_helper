@@ -1,4 +1,5 @@
 // "use strict";
+var cnt; //sms==0&tel==1
 
 function getParameterByName(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -27,7 +28,21 @@ function input_PhoneNum() {
     document.myform.phoneNum.value = num;
     console.log("document.myform.phoneNum.value에 데이터를 입력함.");
   }
+  if (cnt == 1) {
+    document.getElementById("form_Select_Menu").style.display = "none";
+    document.getElementById("msg_label").innerText = "안내 사항";
+    document.myform.msgField.value = "[" + no + "]\n이 열차는 고객센터로 메세지 전송이 불가능 합니다.\n전화를 통하여 민원신청 부탁드립니다.";
+    document.myform.msgField.readOnly = true;
+    document.myform.sendBtn.innerText = "전화걸기";
+  } else {
+    document.getElementById("form_Select_Menu").style.display = "";
+    document.getElementById("msg_label").innerText = "상세한 민원내용";
+    document.myform.msgField.value = "";
+    document.myform.msgField.readOnly = false;
+    document.myform.sendBtn.innerText = "전송";
+  }
   console.log("input_PhoneNum() 작동함");
+
 }
 
 function input_Val() {
@@ -60,20 +75,23 @@ function selectVal() {
   console.log("selectVal() 작동중");
 }
 
-function sendSMS() {
-
+function send() {
   var phoneNum = findNum();
-  var bodyVal = document.myform.msgField.value;
-  var varUA = navigator.userAgent.toLowerCase();
-  if (varUA.match('android') != null) {
-    location.href = "sms:" + phoneNum + "?body=" + bodyVal;
-  } else if (varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 || varUA.indexOf("ipod") > -1) {
-    location.href = "sms:" + phoneNum + "&body=" + bodyVal;
+  if (cnt == 1) {
+    location.href = "tel:" + phoneNum;
   } else {
-    location.href = "sms:" + phoneNum + "?body=" + bodyVal;
+    var bodyVal = document.myform.msgField.value;
+    var varUA = navigator.userAgent.toLowerCase();
+    if (varUA.match('android') != null) {
+      location.href = "sms:" + phoneNum + "?body=" + bodyVal;
+    } else if (varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 || varUA.indexOf("ipod") > -1) {
+      location.href = "sms:" + phoneNum + "&body=" + bodyVal;
+    } else {
+      location.href = "sms:" + phoneNum + "?body=" + bodyVal;
+    }
   }
   console.log(phoneNum + "\n" + bodyVal);
-  console.log("sendSMS() 작동중");
+  console.log("send() 작동중");
 }
 
 function findNum() {
@@ -90,9 +108,11 @@ function findNum() {
       case "371":
       case "381":
       case "391":
+        cnt = 0;
         return "1544-7769";
         break;
       default:
+        cnt = 0;
         return "정확한 지하철 번호를 입력해주세요[err01]";
     }
   } else if (no.length == 4) {
@@ -105,21 +125,27 @@ function findNum() {
       case "6":
       case "7":
       case "8":
+        cnt = 0;
         return "1577-1234";
         break;
       case "9":
+        cnt = 0;
         return "1544-4009";
         break;
       case "D":
-        return "031-8018-7777 call only";
+        cnt = 1;
+        return "031-8018-7777";
         break;
       case "U":
-        return "031-820-1000 call only";
+        cnt = 1;
+        return "031-820-1000";
         break;
       case "Y":
-        return "031-329-3500 call only";
+        cnt = 1;
+        return "031-329-3500";
         break;
       default:
+        cnt = 0;
         return "정확한 지하철 번호를 입력해주세요[err02]";
     }
   } else {
