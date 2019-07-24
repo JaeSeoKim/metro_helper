@@ -133,14 +133,17 @@ function findNum() {
         return "1544-4009";
         break;
       case "D":
+      case "d":
         cnt = 1;
         return "031-8018-7777";
         break;
       case "U":
+      case "u":
         cnt = 1;
         return "031-820-1000";
         break;
       case "Y":
+      case "y":
         cnt = 1;
         return "031-329-3500";
         break;
