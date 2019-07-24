@@ -39,7 +39,7 @@ function input_PhoneNum() {
     document.getElementById("msg_label").innerText = "상세한 민원내용";
     document.myform.msgField.value = "";
     document.myform.msgField.readOnly = false;
-    document.myform.sendBtn.innerText = "전송";
+    document.myform.sendBtn.innerText = "메시지전송";
   }
   console.log("input_PhoneNum() 작동함");
 
