@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- Start Head -->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>지하철 간편 민원</title>
+
+	<link rel="stylesheet" href="assets/css/style.min.css">
+	<link rel="stylesheet" href="assets/css/modules.css">
+
+	<!-- Canonical URL usage -->
+	<link rel="canonical" href="https://jaeseokim.github.io/metro_helper/">
+
+	<!-- Facebook Open Graph -->
+	<meta property="og:url" content="https://jaeseokim.github.io/metro_helper/" />
+	<meta property="og:title" content="지하철 간편 민원" />
+	<meta property="og:description" content="NFC,QR코드를 이용해 지하철 신고 기능을 지원합니다." />
+	<meta property="og:image" content="https://jaeseokim.github.io/metro_helper/image/preview.png" />
+	<meta property="og:type" content="website">
+	<!-- <meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" /> -->
+
+	<!-- Google Structured Data -->
+	<!-- <script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "Aperitif",
+			"image": "https://aperitif.io/img/aperitif-logo.svg",
+			"url": "https://aperitif.io/",
+			"author": {
+				"@type": "Person",
+				"name": "Octavector"
+			},
+			"datePublished": "2017-MM-DD",
+			"applicationCategory": "HTML"
+		}
+	</script> -->
+</head>
+	<!-- End Head -->
+
+<body class="default" onload="input_TrainNum(),input_PhoneNum();">
+
+	<!--
+START Page Title 1 Background
+-->
+	<section class="MOD_PAGETITLEBACKGROUND" data-theme="_bgp">
+		<div data-layout="_r">
+			<div data-layout="al16">
+				<h1>지하철 간편 민원</h1>
+			</div>
+		</div>
+	</section>
+	<!--
+END Page Title 1 Background
+-->
+	<!--
+START MODULE | Menu
+-->
+	<section class="MOD_MENU" data-theme="_bgp">
+		<div data-layout="_r" class="nopadding">
+			<nav class="MOD_MENU_Nav">
+				<p class="MOD_MENU_Title" >메뉴</p>
+				<svg class="MOD_MENU_Button" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+					<rect width="30" height="6" />
+
+
+					<rect y="24" width="30" height="6" />
+					<rect y="12" width="30" height="6" />
+				</svg>
+				<ul class="AP_Menu_List">
+					<li>
+						<a href="index.html" data-theme="_bgp">수도권</a>
+					</li>
+					<li>
+						<a href="#" data-theme="_bgp">인천</a>
+					</li>
+					<li>
+						<a href="#" data-theme="_bgp">부산</a>
+					</li>
+					<li>
+						<a href="#" data-theme="_bgp">대구</a>
+					</li>
+					<li>
+						<a href="#" data-theme="_bgp">광주</a>
+					</li>
+					<li>
+						<a href="#" data-theme="_bgp">대전</a>
+					</li>
+					<!-- <li>
+          <a href="#" data-theme="_bgp">Menu Item</a>
+          <ul>
+            <li>
+              <a href="#" data-theme="_bgpd">Sub-Menu Item</a>
+            </li>
+            <li>
+              <a href="#" data-theme="_bgpd">Sub-Menu Item long title</a>
+            </li>
+            <li>
+              <a href="#" data-theme="_bgpd">Sub-Menu Item</a>
+            </li>
+          </ul>
+        </li> -->
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<!--
+END MODULE | Menu
+-->
+	<!--
+START Form | Text
+-->
+	<section>
+		<div data-layout="_r">
+			<div data-layout="de10 ec-half">
+				<h3>민원 신청</h3>
+				<form name="myform" action="index.html" method="get" id="fromdata">
+					<div class="formRow">
+						<label for="train_number">지하철 칸 번호 </label><input id="train_number" name="trainNum" type="text" maxlength="6" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)" onkeyup="input_PhoneNum()"
+							onKeydown="javascript:if(event.keyCode == 13) form.submit();" placeholder="ex)311000">
+					</div>
+					<div class="formRow" id="form_Select_Menu">
+						<label for="select_Menu">양식 선택</label>
+						<select name="selMenu" id="select_Menu" onchange="selectVal();" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)">
+							<option value="Emergency" selected="selected">성범죄/긴급상황</option>
+							<option value="Disordered">질서저해</option>
+							<option value="Temperature">냉난방</option>
+							<option value="Others">기타</option>
+						</select>
+					</div>
+					<div class="formRow">
+						<label for="phoneNum">연락처</label><input id="phoneNum" type="text" placeholder="여기에 번호가 자동으로 입력됨" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)" readonly>
+					</div>
+					<div class="formRow">
+						<label for="msg_Field" id="msg_label">상세한 민원내용</label><textarea id="msg_Field" name="msgField" maxlength="40" onmouseover="changeColor(this)" onmouseout="changeOrignal(this)"
+							placeholder="여기에 상세한 민원 내용을 입력 해주세요.(40글자 제한,그이상의 민원내용은 이어서 메세지를 보내주세요.)"></textarea></div>
+					<button type="button" name="sendBtn" class="btn" onclick="send();">메시지 전송</button>
+				</form>
+			</div>
+			<div data-layout="de6 ec5 ec-n3">
+				<p style="font-size: 13px"><br>다음 각 호의 어느 하나에 해당하는 사람은 60만원 이하의 벌금, 구류 또는 과료의 형으로 처벌한다. <개정 2013. 5. 22.></br>
+						<br>(거짓신고) 있지 아니한 범죄나 재해 사실을 공무원에게 거짓으로 신고한 사람</br></p>
+			</div>
+		</div>
+	</section>
+	<!--
+END Form | Text
+-->
+
+	<footer>
+		<div class="MOD_FOOTER2" data-theme="_bgd">
+			<div id="footer_css">
+				<div data-layout="al16 ch-o3 ec-o2">
+					<!-- <h3>Contact</h3>
+					<p>Email: <a href="mailto:#">kimjaeseo0220@gmail.com</a>
+					<br>Phone: <a href="tel:#">010-5557-1052</a> -->
+					</p>
+					<p>Copyright &copy; 2019 by 김재서,박화비(재화팀) </p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="assets/js/index.js"></script>
+</body>
+
+</html>
