@@ -402,7 +402,8 @@ a {
   padding: 9px 0;
   width: 100%;
   border: none;
-  border-bottom: 1px solid
+  border-bottom: 1px solid #ccc;
+  background: inherit;
 }
 
 .w3-dropdown-click, .w3-dropdown-hover {
