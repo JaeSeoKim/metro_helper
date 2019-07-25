@@ -97,16 +97,17 @@ function findNum() {
   var no = document.myform.trainNum.value;
   if (no.length == 6) {
     switch (no.substr(0, 3)) {
-      case "311":
-      case "312":
-      case "341":
-      case "321":
-      case "331":
-      case "351":
-      case "361":
-      case "371":
-      case "381":
-      case "391":
+      case "311": //1호선(경부, 경인, 경원선)
+      case "319": //광명셔틀
+      case "321": //중앙선
+      case "341": //4호선(과천, 안산선)
+      case "331": //경의선
+      case "351": //분당선, 수인선
+      case "361": //경춘선
+      case "368": //ITX-청춘
+      case "371": //경강선
+      case "381": //동해선
+      case "391": //서해선
         cnt = 0;
         return "1544-7769";
         break;
@@ -114,9 +115,20 @@ function findNum() {
         cnt = 0;
         return "정확한 지하철 번호를 입력해주세요[err01]";
     }
+  } else if (no.length == 5) {
+    switch (no.substr(0, 2)) {
+      case "UL": //우이신설선
+      case "ul":
+        cnt = 1;
+        return "02-3499-5561";
+        break;
+      default:
+        cnt = 0;
+        return "정확한 지하철 번호를 입력해주세요[err02]";
+    }
   } else if (no.length == 4) {
     switch (no.substr(0, 1)) {
-      case "1":
+      case "1": //서울교통공사 1호선은 한국철도공사와 구분 필요
       case "2":
       case "3":
       case "4":
@@ -127,31 +139,31 @@ function findNum() {
         cnt = 0;
         return "1577-1234";
         break;
-      case "9":
+      case "9": //서울시메트로9호선
         cnt = 0;
         return "1544-4009";
         break;
-      case "D":
+      case "D": //신분당선
       case "d":
         cnt = 1;
         return "031-8018-7777";
         break;
-      case "U":
+      case "U": //의정부경전철
       case "u":
         cnt = 1;
         return "031-820-1000";
         break;
-      case "Y":
+      case "Y": //용인 경전철(에버라인)
       case "y":
         cnt = 1;
         return "031-329-3500";
         break;
       default:
         cnt = 0;
-        return "정확한 지하철 번호를 입력해주세요[err02]";
+        return "정확한 지하철 번호를 입력해주세요[err03]";
     }
   } else {
-    return "정확한 지하철 번호를 입력해주세요[err03]";
+    return "정확한 지하철 번호를 입력해주세요[err04]";
   }
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
