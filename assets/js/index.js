@@ -1,4 +1,3 @@
-
 var cnt; //sms==0&tel==1
 
 function getParameterByName(name) {
