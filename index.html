@@ -47,6 +47,7 @@
     <span>지하철 간편 민원</span>
   </header>
 
+
   <!-- Overlay effect when opening sidebar on small screens -->
   <div class="w3-overlay w3-hide-large padding" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
@@ -59,7 +60,16 @@
           <form name="myform" action="index.html" method="get" id="fromdata">
             <div class="w3-section">
               <label>지하철 칸 번호</label>
-              <input class="w3-input w3-border" type="text" id="train_number" name="trainNum" maxlength="6" onkeyup="input_PhoneNum()" onKeydown="javascript:if(event.keyCode == 13) form.submit();" placeholder="ex)311000" required>
+              <input class="w3-input w3-border" type="text"  name="trainNum" maxlength="6" onkeyup="input_PhoneNum()" onKeydown="javascript:if(event.keyCode == 13) form.submit();" placeholder="ex)311000" required>
+            </div>
+            <div class="w3-section" style="display: none">
+              <label> 호선 방향 선택</label>
+              <select class="w3-select w3-border" name="selMenu" onchange="">
+                <option value="" selected="selected"></option>
+                <option value=""></option>
+                <option value=""></option>
+
+              </select>
             </div>
             <div class="w3-section">
               <label>연락처</label>
@@ -97,7 +107,7 @@
     <p class="w3-center w3-large">Copyright &copy; 2019 by 김재서,박화비(팀재화)</a></p>
   </div>
   <script src="assets/js/index.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
 </body>
 
 </html>
