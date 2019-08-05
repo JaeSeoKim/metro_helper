@@ -8,7 +8,7 @@ function getParameterByName(name) {
 }
 
 function input_TrainNum() {
-  if (getParameterByName('trainNum') == null || getParameterByName('trainNum') == "") {
+  if (getParameterByName('trainNum') == "") {
     console.log("url에 지하철 데이터가 없음.");
   } else {
     document.getElementById("train_number").value = getParameterByName('trainNum');
