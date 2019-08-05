@@ -17,17 +17,6 @@ function input_TrainNum() {
   console.log("input_TrainNum() 작동함");
 }
 
-function input_Route() {
-  if (getParameterByName('selRoute') == "lightRail") {
-    document.getElementById('select_Route').value = 'lightRail';
-    console.log("url에서 노선 정보 가져옴");
-  }else {
-
-  }
-  console.log("input_TrainNum() 작동함");
-
-}
-
 function input_PhoneNum() {
   var num = findNum();
   var no = document.myform.trainNum.value;
@@ -105,45 +94,14 @@ function send() {
 
 function findNum() {
   var no = document.myform.trainNum.value;
-  if (no.length == 6) {
-    switch (no.substr(0, 3)) {
-      case "381": //동해선
-        cnt = 0;
-        document.getElementById("form_Route_Menu").style.display = "none";
-        return "1544-7769";
-        break;
-      default:
-        cnt = 0;
-        document.getElementById("form_Route_Menu").style.display = "none";
-        return "정확한 지하철 번호를 입력해주세요[err01]";
-    }
-  } else if (no.length == 4) {
+  if (no.length == 4) {
     switch (no.substr(0, 1)) {
-      case "1": //부산 도시철도
-        if (document.getElementById('select_Route').value == "metro") {
-          document.getElementById("form_Route_Menu").style.display = "";
-          cnt = 0;
-          return "1544-5005";
-        } else if (document.getElementById('select_Route').value == "lightRail") {
-          document.getElementById("form_Route_Menu").style.display = "";
-          cnt = 0;
-          return "부산김해경전철 전화번호";
-        } else {
-          document.getElementById("form_Route_Menu").style.display = "none";
-          cnt = 0;
-          return "flag오류!!!!!";
-        }
-        break;
-      case "2":
-      case "3":
-      case "4":
-        cnt = 0;
-        document.getElementById("form_Route_Menu").style.display = "none";
-        return "1544-5005";
+      case "1": //대전 도시철도
+      cnt = 1;
+        return "042-539-3114";
         break;
       default:
         cnt = 0;
-        document.getElementById("form_Route_Menu").style.display = "none";
         return "정확한 지하철 번호를 입력해주세요[err03]";
     }
   } else {
