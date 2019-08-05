@@ -10,7 +10,9 @@ h5 {
 body {
   font-size: 16px;
 }
-
+.w3-select{
+  background-color: inherit;
+}
 .w3-textarea {
   padding: 8px;
   display: block;

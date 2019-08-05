@@ -168,6 +168,7 @@ function findNum() {
   console.log("열차칸번호와 매치해서 값을 가져옴");
 }
 
+
 // Script to open and close sidebar
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
