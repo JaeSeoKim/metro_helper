@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- Start Head -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>지하철 간편 민원</title>
+
+
+  <!-- Canonical URL usage -->
+  <link rel="canonical" href="https://jaeseokim.github.io/metro_helper/">
+
+  <!-- Facebook Open Graph -->
+  <meta property="og:url" content="https://jaeseokim.github.io/metro_helper/" />
+  <meta property="og:title" content="지하철 간편 민원" />
+  <meta property="og:description" content="NFC,QR코드를 이용해 지하철 신고 기능을 지원합니다." />
+  <meta property="og:image" content="https://jaeseokim.github.io/metro_helper/image/preview.png" />
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="assets/css/w3.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+
+</head>
+
+<body onload="input_TrainNum(),input_PhoneNum();">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding animated slideInLeft " style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft w3-hover-white" style="width:100%;font-size:28px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>지하철<br>간편 민원</b></h3>
+    </div>
+    <div class="w3-bar-block">
+      <a href="splash.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">WIFI접속</a>
+      <a href="capital.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">수도권</a>
+      <!-- <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">인천</a> -->
+      <a href="busan.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">부산</a>
+      <a href="daegu.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">대구</a>
+      <a href="gwangju.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">광주</a>
+      <a href="daejeon.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">대전</a>
+    </div>
+  </nav>
+
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-indigo w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-indigo w3-margin-right w3-hover-white" onclick="w3_open()">&#9776;</a>
+    <span>지하철 간편 민원</span>
+  </header>
+
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large padding" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <div class="w3-row-padding">
+      <div class="w3-container" id="contact" style="margin-top:75px">
+        <h1 class="w3-xxlarge w3-text-indigo animated infinite flash slow"><b>공지사항</b></h1>
+        <p><br>지하철 민원신고를 이용하실려는 분은 밑에 지하철 민원신고버튼을 눌러주세요.</br>
+            <br>민원신고를 이용하지 않고 WIFI를 사용하실분은 WIFI접속을 눌러주세요.</br></p>
+      </div>
+      <button class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom" onclick = "location.href = 'capital.html?trainNum=2345' " type="button" name="button">지하철 민원신고 [2345]</button>
+    </div>
+    <div class="w3-row-padding">
+      <form method="get" action="$authaction">
+        <input type="hidden" name="tok" value="$tok">
+        <input type="hidden" name="redir" value="$redir">
+        <input class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom" type="submit" value="WIFI 접속">
+      </form>
+      <hr>
+      <copy-right>Copyright &copy; The Nodogsplash Contributors 2004-2019.<br>This software is released under the GNU GPL license.</copy-right>
+    </div>
+  </div>
+  <!-- W3.CSS Container -->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;">
+    <p class="w3-center w3-large">Copyright &copy; 2019 by 김재서,박화비(팀재화)</a></p>
+  </div>
+  <script src="assets/js/index.js"></script>
+  <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2acf43771a4de79977b39c7a20a08a8c"></script> -->
+  <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
+</body>
+
+</html>
