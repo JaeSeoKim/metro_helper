@@ -119,15 +119,15 @@ function findNum() {
     }
   } else if (no.length == 4) {
     switch (no.substr(0, 1)) {
-      case "1": //부산 도시철도
+      case "1": //부산 도시철도 ,부산김해경전철
         if (document.getElementById('select_Route').value == "metro") {
           document.getElementById("form_Route_Menu").style.display = "";
           cnt = 0;
           return "1544-5005";
         } else if (document.getElementById('select_Route').value == "lightRail") {
           document.getElementById("form_Route_Menu").style.display = "";
-          cnt = 0;
-          return "부산김해경전철 전화번호";
+          cnt = 1;
+          return "055-310-9800";
         } else {
           document.getElementById("form_Route_Menu").style.display = "none";
           cnt = 0;
