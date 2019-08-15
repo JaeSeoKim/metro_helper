@@ -63,6 +63,38 @@
               <label>지하철 칸 번호</label>
               <input class="w3-input w3-border" type="text" id="train_number" name="trainNum" maxlength="6" onkeyup="input_PhoneNum()" onKeydown="javascript:if(event.keyCode == 13) form.submit();" placeholder="ex)311000" required>
             </div>
+
+            <div class="w3-section" id="form_Route_1_Menu" style="display: none">
+              <!--1호선 체크용 -->
+              <label>노선 선택</label>
+              <select class="w3-select w3-border" name="selRoute_1" id="select_Route_1" onchange="input_PhoneNum();">
+                <option value="seoul" selected="selected">청량리역~서울역(서울메트로)</option>
+                <option value="korail">경부, 경인, 경원선(코레일)</option>
+                <option value="airport">공항철도(1)</option>
+                <option value="incheon">인천 1호선</option>
+              </select>
+            </div>
+
+            <div class="w3-section" id="form_Route_2_Menu" style="display: none">
+              <!--2호선 체크용 -->
+              <label>노선 선택</label>
+              <select class="w3-select w3-border" name="selRoute_2" id="select_Route_2" onchange="input_PhoneNum();">
+                <option value="seoul" selected="selected">서울 2호선</option>
+                <option value="airport">공항철도(2)</option>
+                <option value="incheon">인천 2호선</option>
+              </select>
+            </div>
+
+            <div class="w3-section" id="form_Route_3_Menu" style="display: none">
+              <!--3호선 체크용 -->
+              <label>노선 선택</label>
+              <select class="w3-select w3-border" name="selRoute_3" id="select_Route_3" onchange="input_PhoneNum();">
+                <option value="seoul" selected="selected">서울 3호선</option>
+                <option value="airport">공항철도(3)</option>
+              </select>
+            </div>
+
+
             <div class="w3-section">
               <label id="numLb">연락처</label>
               <input class="w3-input w3-border" id="phoneNum" type="text" placeholder="여기에 번호가 자동으로 입력됨" readonly>
@@ -97,10 +129,10 @@
           </div>
            -->
           <div class="w3-row-padding">
-            <form method="get" action="$authaction">
+            <form method="get" action="$authaction" >
               <input type="hidden" name="tok" value="$tok">
-              <input type="hidden" name="redir" value="$redir">
-              <input class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom" type="submit" value="WIFI 접속">
+              <input type="hidden" name="redir" value="www.google.com">
+              <input class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom"  type="submit" value="WIFI 접속">
             </form>
             <hr>
             <copy-right>Copyright &copy; The Nodogsplash Contributors 2004-2019.<br>This software is released under the GNU GPL license.</copy-right>
@@ -114,6 +146,9 @@
     <p class="w3-center w3-large">Copyright &copy; 2019 by 김재서,박화비(팀재화)</a></p>
   </div>
   <script src="assets/js/index.js"></script>
+  <script src="assets/close.js"></script>
+
+  </script>
   <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2acf43771a4de79977b39c7a20a08a8c"></script> -->
   <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> -->
 </body>

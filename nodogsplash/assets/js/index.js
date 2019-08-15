@@ -101,18 +101,24 @@ function findNum() {
       case "319": //광명셔틀
       case "321": //중앙선
       case "341": //4호선(과천, 안산선)
-      case "331": //경의선
-      case "351": //분당선, 수인선
-      case "361": //경춘선
+      case "331": //경의선 =
+      case "351": //분당선, 수인선 =
+      case "361": //경춘선 =
       case "368": //ITX-청춘
-      case "371": //경강선
+      case "371": //경강선 =
       case "381": //동해선
-      case "391": //서해선
+      case "391": //서해선 =
         cnt = 0;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "1544-7769";
         break;
       default:
         cnt = 0;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "정확한 지하철 번호를 입력해주세요[err01]";
     }
   } else if (no.length == 5) {
@@ -120,49 +126,136 @@ function findNum() {
       case "UL": //우이신설선
       case "ul":
         cnt = 1;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "02-3499-5561";
         break;
       default:
         cnt = 0;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "정확한 지하철 번호를 입력해주세요[err02]";
     }
   } else if (no.length == 4) {
     switch (no.substr(0, 1)) {
       case "1": //서울교통공사 1호선은 한국철도공사와 구분 필요
+        if (document.getElementById('select_Route_1').value == "seoul") {
+          document.getElementById("form_Route_1_Menu").style.display = "";
+          cnt = 0;
+          return "1577-1234";
+        } else if (document.getElementById('select_Route_1').value == "korail") {
+          document.getElementById("form_Route_1_Menu").style.display = "";
+          cnt = 0;
+          return "1544-7769";
+        } else if (document.getElementById('select_Route_1').value == "airport") {
+          document.getElementById("form_Route_1_Menu").style.display = "";
+          cnt = 0;
+          return "1599-7788";
+        } else if (document.getElementById('select_Route_1').value == "incheon") {
+          document.getElementById("form_Route_1_Menu").style.display = "";
+          cnt = 0;
+          return "1899-4446";
+        } else {
+          document.getElementById("form_Route_1_Menu").style.display = "none";
+          cnt = 0;
+          return "flag오류!!!!!";
+        }
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
+        break;
       case "2":
+        if (document.getElementById('select_Route_2').value == "seoul") {
+          document.getElementById("form_Route_2_Menu").style.display = "";
+          cnt = 0;
+          return "1577-1234";
+        } else if (document.getElementById('select_Route_2').value == "airport") {
+          document.getElementById("form_Route_2_Menu").style.display = "";
+          cnt = 0;
+          return "1599-7788";
+        } else if (document.getElementById('select_Route_2').value == "incheon") {
+          document.getElementById("form_Route_2_Menu").style.display = "";
+          cnt = 0;
+          return "1899-4446";
+        } else {
+          document.getElementById("form_Route_2_Menu").style.display = "none";
+          cnt = 0;
+          return "flag오류!!!!!";
+        }
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        break;
       case "3":
+        if (document.getElementById('select_Route_3').value == "seoul") {
+          document.getElementById("form_Route_3_Menu").style.display = "";
+          cnt = 0;
+          return "1577-1234";
+        } else if (document.getElementById('select_Route_3').value == "airport") {
+          document.getElementById("form_Route_3_Menu").style.display = "";
+          cnt = 0;
+          return "1599-7788";
+        } else {
+          document.getElementById("form_Route_3_Menu").style.display = "none";
+          cnt = 0;
+          return "flag오류!!!!!";
+        }
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
+        break;
       case "4":
       case "5":
       case "6":
       case "7":
       case "8":
         cnt = 0;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "1577-1234";
         break;
       case "9": //서울시메트로9호선
         cnt = 0;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "1544-4009";
         break;
       case "D": //신분당선
       case "d":
         cnt = 1;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "031-8018-7777";
         break;
       case "U": //의정부경전철
       case "u":
         cnt = 1;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "031-820-1000";
         break;
       case "Y": //용인 경전철(에버라인)
       case "y":
         cnt = 1;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "031-329-3500";
         break;
       default:
         cnt = 0;
+        document.getElementById("form_Route_1_Menu").style.display = "none";
+        document.getElementById("form_Route_3_Menu").style.display = "none";
+        document.getElementById("form_Route_2_Menu").style.display = "none";
         return "정확한 지하철 번호를 입력해주세요[err03]";
     }
   } else {
+    document.getElementById("form_Route_1_Menu").style.display = "none";
+    document.getElementById("form_Route_3_Menu").style.display = "none";
+    document.getElementById("form_Route_2_Menu").style.display = "none";
     return "정확한 지하철 번호를 입력해주세요[err04]";
   }
   console.log("열차칸번호와 매치해서 값을 가져옴");

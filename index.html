@@ -23,7 +23,7 @@
 
 </head>
 
-<body onload="input_TrainNum(),input_PhoneNum();">
+<body onload="input_TrainNum(),input_Route,input_PhoneNum();">
 
   <!-- Sidebar/menu -->
   <nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding animated slideInLeft " style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
@@ -63,7 +63,8 @@
               <input class="w3-input w3-border" type="text" id="train_number" name="trainNum" maxlength="6" onkeyup="input_PhoneNum()" onKeydown="javascript:if(event.keyCode == 13) form.submit();" placeholder="ex)311000" required>
             </div>
 
-            <div class="w3-section" id="form_Route_1_Menu" style="display: none"> <!--1호선 체크용 -->
+            <div class="w3-section" id="form_Route_1_Menu" style="display: none">
+              <!--1호선 체크용 -->
               <label>노선 선택</label>
               <select class="w3-select w3-border" name="selRoute_1" id="select_Route_1" onchange="input_PhoneNum();">
                 <option value="seoul" selected="selected">청량리역~서울역(서울메트로)</option>
@@ -73,7 +74,8 @@
               </select>
             </div>
 
-            <div class="w3-section" id="form_Route_2_Menu" style="display: none"> <!--2호선 체크용 -->
+            <div class="w3-section" id="form_Route_2_Menu" style="display: none">
+              <!--2호선 체크용 -->
               <label>노선 선택</label>
               <select class="w3-select w3-border" name="selRoute_2" id="select_Route_2" onchange="input_PhoneNum();">
                 <option value="seoul" selected="selected">서울 2호선</option>
@@ -82,7 +84,8 @@
               </select>
             </div>
 
-            <div class="w3-section" id="form_Route_3_Menu" style="display: none"> <!--3호선 체크용 -->
+            <div class="w3-section" id="form_Route_3_Menu" style="display: none">
+              <!--3호선 체크용 -->
               <label>노선 선택</label>
               <select class="w3-select w3-border" name="selRoute_3" id="select_Route_3" onchange="input_PhoneNum();">
                 <option value="seoul" selected="selected">서울 3호선</option>
