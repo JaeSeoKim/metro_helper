@@ -40,7 +40,7 @@ function input_Route() {
     document.getElementById('select_Route_3').value = 'airport';
     console.log("url에서 노선 정보 가져옴");
   }
-  console.log("input_TrainNum() 작동함");
+  console.log("input_Route() 작동함");
 
 }
 

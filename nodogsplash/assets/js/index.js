@@ -18,6 +18,33 @@ function input_TrainNum() {
 
 }
 
+function input_Route() {
+  if (getParameterByName('selRoute_1') == "korail") {
+    document.getElementById('select_Route_1').value = 'korail';
+    console.log("url에서 노선 정보 가져옴");
+  } else if (getParameterByName('selRoute_1') == "airport") {
+    document.getElementById('select_Route_1').value = 'airport';
+    console.log("url에서 노선 정보 가져옴");
+  } else if (getParameterByName('selRoute_1') == "incheon") {
+    document.getElementById('select_Route_1').value = 'incheon';
+    console.log("url에서 노선 정보 가져옴");
+  }
+  if (getParameterByName('selRoute_2') == "airport") {
+    document.getElementById('select_Route_2').value = 'airport';
+    console.log("url에서 노선 정보 가져옴");
+  } else if (getParameterByName('selRoute_2') == "incheon") {
+    document.getElementById('select_Route_2').value = 'incheon';
+    console.log("url에서 노선 정보 가져옴");
+  }
+  if (getParameterByName('selRoute_3') == "airport") {
+    document.getElementById('select_Route_3').value = 'airport';
+    console.log("url에서 노선 정보 가져옴");
+  }
+  console.log("input_Route() 작동함");
+
+}
+
+
 function input_PhoneNum() {
   var num = findNum();
   var no = document.myform.trainNum.value;
