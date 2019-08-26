@@ -159,12 +159,19 @@ function findNum() {
         return "02-3499-5561";
         break;
       case "1":
-        cnt =1;
-        selRouteNone();
-        return "인천자기부상철도 연락처 추가 필요";
+        var tmp = no.substr(4, 5);
+        if (tmp == "A" || tmp == "B" || tmp == "a" || tmp == "b") {
+          cnt = 1;
+          selRouteNone();
+          return "인천자기부상철도 연락처 추가 필요[1]";
+        } else {
+          return "정확한 지하철 번호를 입력해주세요[err02]";
+          selRouteNone();
+        }
         break;
       default:
         cnt = 0;
+        selRouteNone();
         return "정확한 지하철 번호를 입력해주세요[err02]";
     }
   } else if (no.length == 4) {
@@ -207,7 +214,7 @@ function findNum() {
           cnt = 0;
           return "1899-4446";
         } else {
-          document.getElementById("form_Route_2_Menu").style.display = "none";
+          selRouteNone();
           cnt = 0;
           return "flag오류!!!!!";
         }
